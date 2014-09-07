@@ -18,6 +18,8 @@ class ViewController: UIViewController, AVCaptureAudioDataOutputSampleBufferDele
     var aPL: Float = 0
     
     
+    
+    
     //peak hold level and average power level
     
     override func viewDidLoad() {
@@ -34,11 +36,9 @@ class ViewController: UIViewController, AVCaptureAudioDataOutputSampleBufferDele
         var audioCaptureInput = AVCaptureDeviceInput (device: device, error: nil)
         
         audioCaptureSession.addInput(audioCaptureInput)
-        
         audioDataOutput.setSampleBufferDelegate(self, queue: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, CUnsignedLong()))
         
         audioCaptureSession.addOutput(audioDataOutput)
-        
         audioCaptureSession.startRunning()
     }
     // only blow bubbles if peak or pwer passes a number
@@ -61,14 +61,84 @@ class ViewController: UIViewController, AVCaptureAudioDataOutputSampleBufferDele
                 self.createBubble()
             })
         }
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named:"space.png"))
     }
     let height = UIScreen.mainScreen().bounds.size.height
     let width = UIScreen.mainScreen().bounds.size.width
     
     func createBubble(){
         
-    }
+        if (pHL) > -10.0 || (aPL) > -10.0 {
+            
+            
+            var bubble = UIView(frame:CGRectMake(0, 0, 28, 28))
+            bubble.center = CGPointMake(width / 2, height)
+            bubble.backgroundColor = UIColor.cyanColor()
+            bubble.layer.cornerRadius = 14
+            
+            self.view.addSubview(bubble)
+            
+            UIView.animateWithDuration(0.5, animations: { () -> Void in
+                let x = CGFloat(arc4random_uniform(UInt32(self.width)))
+                let y = CGFloat(arc4random_uniform(UInt32(self.height)))
+                
+                bubble.center = CGPointMake(x, y)
+            })
+        }
+            
+        if (pHL) > -5.0 || (aPL) > -5.0 {
+            
+            var square = UIView(frame:CGRectMake(0, 0, 20, 20))
+            square.center = CGPointMake(width / 2, height)
+            square.backgroundColor = UIColor.greenColor()
+            
+            self.view.addSubview(square)
+            
+            
+            UIView.animateWithDuration(0.5, animations: { () -> Void in
+                let x = CGFloat(arc4random_uniform(UInt32(self.width)))
+                let y = CGFloat(arc4random_uniform(UInt32(self.height)))
+                
+                
+                square.center = CGPointMake(x, y)
+                
+            })
+            
+        }
+         if (pHL) > -10.0 || (aPL) > -10.0 {
+            
     
+            var roll = UIView(frame:CGRectMake(0, 0, 25, 36))
+            roll.center = CGPointMake(width / 2, height)
+            roll.backgroundColor = UIColor(patternImage: UIImage(named:"cinn.png"))
+            self.view.addSubview(roll)
+            
+            UIView.animateWithDuration(0.5, animations: { () -> Void in
+                let x = CGFloat(arc4random_uniform(UInt32(self.width)))
+                let y = CGFloat(arc4random_uniform(UInt32(self.height)))
+                
+                
+                roll.center = CGPointMake(x, y)
+        })
+        }
+            if (pHL) > -30.0 || (aPL) > -30.0 {
+                
+                var pizza = UIView(frame:CGRectMake(0, 0, 33, 25))
+                pizza.center = CGPointMake(width / 2, height)
+                pizza.backgroundColor = UIColor(patternImage: UIImage(named:"pizza.png"))
+                self.view.addSubview(pizza)
+                
+                UIView.animateWithDuration(5.0, animations: { () -> Void in
+                    let x = CGFloat(arc4random_uniform(UInt32(self.width)))
+                    let y = CGFloat(arc4random_uniform(UInt32(self.height)))
+                    
+                    
+                    pizza.center = CGPointMake(x, y)
+                })
+        
+     
+    }
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
