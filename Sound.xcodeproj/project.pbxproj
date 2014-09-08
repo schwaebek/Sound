@@ -167,6 +167,7 @@
 				TargetAttributes = {
 					274E8DCD19BA016500E8E5C3 = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = WW3AF2LH6C;
 					};
 					274E8DDF19BA016600E8E5C3 = {
 						CreatedOnToolsVersion = 6.0;
@@ -409,6 +410,7 @@
 				274E8DEC19BA016600E8E5C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		274E8DED19BA016600E8E5C3 /* Build configuration list for PBXNativeTarget "SoundTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +419,7 @@
 				274E8DEF19BA016600E8E5C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

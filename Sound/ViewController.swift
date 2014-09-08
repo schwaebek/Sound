@@ -75,7 +75,6 @@ class ViewController: UIViewController, AVCaptureAudioDataOutputSampleBufferDele
             bubble.center = CGPointMake(width / 2, height)
             bubble.backgroundColor = UIColor.cyanColor()
             bubble.layer.cornerRadius = 14
-            
             self.view.addSubview(bubble)
             
             UIView.animateWithDuration(0.5, animations: { () -> Void in
@@ -83,7 +82,11 @@ class ViewController: UIViewController, AVCaptureAudioDataOutputSampleBufferDele
                 let y = CGFloat(arc4random_uniform(UInt32(self.height)))
                 
                 bubble.center = CGPointMake(x, y)
+            }, completion: { (Bool) -> Void in
+                bubble.removeFromSuperview()
             })
+           
+        
         }
             
         if (pHL) > -5.0 || (aPL) > -5.0 {
@@ -91,9 +94,7 @@ class ViewController: UIViewController, AVCaptureAudioDataOutputSampleBufferDele
             var square = UIView(frame:CGRectMake(0, 0, 20, 20))
             square.center = CGPointMake(width / 2, height)
             square.backgroundColor = UIColor.greenColor()
-            
             self.view.addSubview(square)
-            
             
             UIView.animateWithDuration(0.5, animations: { () -> Void in
                 let x = CGFloat(arc4random_uniform(UInt32(self.width)))
@@ -101,8 +102,10 @@ class ViewController: UIViewController, AVCaptureAudioDataOutputSampleBufferDele
                 
                 
                 square.center = CGPointMake(x, y)
-                
+            }, completion: { (Bool) -> Void in
+                square.removeFromSuperview()
             })
+            
             
         }
          if (pHL) > -10.0 || (aPL) > -10.0 {
@@ -116,10 +119,13 @@ class ViewController: UIViewController, AVCaptureAudioDataOutputSampleBufferDele
             UIView.animateWithDuration(0.5, animations: { () -> Void in
                 let x = CGFloat(arc4random_uniform(UInt32(self.width)))
                 let y = CGFloat(arc4random_uniform(UInt32(self.height)))
-                
-                
                 roll.center = CGPointMake(x, y)
-        })
+            }, completion: { (Bool) -> Void in
+                roll.removeFromSuperview()
+            })
+            
+           
+        
         }
             if (pHL) > -30.0 || (aPL) > -30.0 {
                 
@@ -128,13 +134,22 @@ class ViewController: UIViewController, AVCaptureAudioDataOutputSampleBufferDele
                 pizza.backgroundColor = UIColor(patternImage: UIImage(named:"pizza.png"))
                 self.view.addSubview(pizza)
                 
-                UIView.animateWithDuration(5.0, animations: { () -> Void in
-                    let x = CGFloat(arc4random_uniform(UInt32(self.width)))
-                    let y = CGFloat(arc4random_uniform(UInt32(self.height)))
-                    
-                    
-                    pizza.center = CGPointMake(x, y)
-                })
+              UIView.animateWithDuration(0.5, animations: { () -> Void in
+                let x = CGFloat(arc4random_uniform(UInt32(self.width)))
+                let y = CGFloat(arc4random_uniform(UInt32(self.height)))
+                pizza.center = CGPointMake(x, y)
+              }, completion: { (Bool) -> Void in
+                pizza.removeFromSuperview()
+              })
+                
+                
+//                UIView.animateWithDuration(5.0, animations: { () -> Void in
+//                    let x = CGFloat(arc4random_uniform(UInt32(self.width)))
+//                    let y = CGFloat(arc4random_uniform(UInt32(self.height)))
+//                    
+//                    
+//                    pizza.center = CGPointMake(x, y)
+//                })
         
      
     }
